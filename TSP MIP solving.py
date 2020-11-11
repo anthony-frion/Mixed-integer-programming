@@ -199,16 +199,27 @@ def show_solution(problem, solution, window) :
                 draw_position_j = (fst(points[j]) + offset, snd(points[j]) + offset)
                 pg.draw.line(window, (0, 0, 0), draw_position_i, draw_position_j)
     pg.display.flip()
+    
+print("The optimal solution of the problem has been computed.")
+print("The positions of the cities will now be showed.")
+print("You can press SPACE at any time to show/hide the optimal solution.")
 
 show_cities(problem, window)
 
 keep = True
+solution_showed = False
 
 while keep :
+    
     pg.time.Clock().tick(100)
     for event in pg.event.get() :
         if event.type == KEYDOWN and event.key == K_SPACE :
-            show_solution(problem, solution, window)
+            if not solution_showed :
+                solution_showed = True
+                show_solution(problem, solution, window)
+            else :
+                solution_showed = False
+                show_cities(problem, window)
         if event.type == KEYDOWN and event.key == K_ESCAPE :
             keep = False
 
