@@ -155,7 +155,11 @@ def solveIterativeSubtourEliminationGurobi(problem) :
 
 problem = generateRandomTSP(50, 1000, 500)
 
-solution, comp_time = solveIterativeSubtourEliminationGurobi(problem)
+try :
+    solution, comp_time = solveIterativeSubtourEliminationGurobi(problem)
+except :
+    solution, comp_time = solveIterativeSubtourEliminationPulp(problem)
+    
 '''
 for line in solution :
     print(line)
