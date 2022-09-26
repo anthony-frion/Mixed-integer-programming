@@ -42,7 +42,7 @@ def generateRandomTSP(numberPoints, Xsize=1000, Ysize=600) :
         for j in range(numberPoints) :
             newDistancesRow.append(sqrt((fst(points[i]) - fst(points[j])) **2 + (snd(points[i]) - snd(points[j])) **2))
         distances.append(newDistancesRow)
-    return TSP(points, distances, compute_lines_crossed)
+    return TSP(points, distances)
 
             
             
