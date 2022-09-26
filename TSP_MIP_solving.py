@@ -153,7 +153,10 @@ def solveIterativeSubtourEliminationGurobi(problem) :
     print("Overall computing time : {} seconds".format(time() - t0))
     return solution, time() - t0
 
-problem = generateRandomTSP(50, 1000, 500)
+nb_points = 60
+size = (1200, 600)
+
+problem = generateRandomTSP(nb_points, size[0], size[1])
 
 try :
     solution, comp_time = solveIterativeSubtourEliminationGurobi(problem)
@@ -170,8 +173,8 @@ import pygame as pg
 from pygame.locals import *
 
 # A few variables for the graphical representation
-window_size_x = 1050
-window_size_y = 550
+window_size_x = size[0] + 50
+window_size_y = size[1] + 50
 offset = 25
 radius = 8
 
@@ -228,19 +231,3 @@ while keep :
             keep = False
 
 pg.quit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
