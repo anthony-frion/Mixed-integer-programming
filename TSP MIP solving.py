@@ -161,7 +161,7 @@ for line in solution :
     print(line)
 '''
 
-# Importing python to visualise the solution
+# Importing pygame to visualise the solution
 import pygame as pg
 from pygame.locals import *
 
